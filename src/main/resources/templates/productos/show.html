@@ -8,7 +8,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 
-	<title>Spring eCommerce</title>
+	<title>Spring eCommerce - Productos</title>
 
 
 	<!-- Bootstrap core CSS -->
@@ -28,10 +28,9 @@
 	<!-- Page Content -->
 	<div class="container">
 
-
 		<!-- Page Heading/Breadcrumbs -->
 		<h1 class="mt-4 mb-3">
-			Spring eCommerce <small>Productos</small>
+			<small>Productos</small>
 		</h1>
 
 		<ol class="breadcrumb">
@@ -49,7 +48,6 @@
 					<th scope="col">Inventario</th>
 					<th scope="col">Precio</th>
 					<th scope="col">Acción</th>
-					<th scope="col">Acción</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -58,8 +56,10 @@
 					<td th:text="${producto.descripcion}"></td >
 					<td th:text="${producto.cantidad}"></td >
 					<td th:text="${producto.precio}"></td >
-					<td><a class="btn btn-warning" href="">Editar</a> </td>
-					<td><a class="btn btn-danger" href="">Eliminar</a> </td>
+					<td>
+						<a class="btn btn-warning" th:href="@{productos/edit/{id}(id=${producto.id}) }">Editar</a>
+						<a class="btn btn-danger" href="">Eliminar</a>
+					</td>
 				</tr >
 			</tbody>
 		</table>
