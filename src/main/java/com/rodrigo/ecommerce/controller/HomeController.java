@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import com.rodrigo.ecommerce.model.DetalleOrden;
 import com.rodrigo.ecommerce.model.Orden;
 import com.rodrigo.ecommerce.model.Producto;
+import com.rodrigo.ecommerce.model.Usuario;
+import com.rodrigo.ecommerce.service.IUsuarioService;
 import com.rodrigo.ecommerce.service.ProductoService;
 
 @Controller
@@ -24,6 +26,9 @@ public class HomeController {
 	
 	@Autowired
 	private ProductoService productoService;
+	
+	@Autowired
+	private IUsuarioService usuarioService;
 	
 	//Almacena los detalles de compra
 	List<DetalleOrden> detalles = new ArrayList<DetalleOrden>();
@@ -113,8 +118,15 @@ public class HomeController {
 		return "usuario/carrito";
 	}
 	
-	@GetMapping("/orden")
-	public String orden() {
+	@GetMapping("/order")
+	public String order(Model model) {
+		
+		Usuario usuario = usuarioService.findById(1).get();
+		
+		model.addAttribute("cart", detalles);
+		model.addAttribute("orden", orden);
+		model.addAttribute("usuario", usuario);
+		
 		return "usuario/resumenorden";
 	}
 
