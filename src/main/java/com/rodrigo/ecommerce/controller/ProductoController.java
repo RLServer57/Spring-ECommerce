@@ -12,7 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.rodrigo.ecommerce.model.Producto;
 import com.rodrigo.ecommerce.model.Usuario;
-import com.rodrigo.ecommerce.service.ProductoService;
+import com.rodrigo.ecommerce.service.IProductoService;
 import com.rodrigo.ecommerce.service.UploadFileService;
 
 @Controller
@@ -22,7 +22,7 @@ public class ProductoController {
 	private final Logger LOGGER = LoggerFactory.getLogger(ProductoController.class);
 
 	@Autowired
-	private ProductoService productoService;
+	private IProductoService productoService;
 
 	@Autowired
 	private UploadFileService upload;

@@ -16,7 +16,7 @@ import com.rodrigo.ecommerce.model.Orden;
 import com.rodrigo.ecommerce.model.Producto;
 import com.rodrigo.ecommerce.model.Usuario;
 import com.rodrigo.ecommerce.service.IUsuarioService;
-import com.rodrigo.ecommerce.service.ProductoService;
+import com.rodrigo.ecommerce.service.IProductoService;
 
 @Controller
 @RequestMapping("/")
@@ -25,7 +25,7 @@ public class HomeController {
 	private final Logger LOG = LoggerFactory.getLogger(HomeController.class);
 	
 	@Autowired
-	private ProductoService productoService;
+	private IProductoService productoService;
 	
 	@Autowired
 	private IUsuarioService usuarioService;
