@@ -1,5 +1,7 @@
 package com.rodrigo.ecommerce.controller;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.slf4j.Logger;
@@ -9,6 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import com.rodrigo.ecommerce.model.DetalleOrden;
+import com.rodrigo.ecommerce.model.Orden;
 import com.rodrigo.ecommerce.model.Producto;
 import com.rodrigo.ecommerce.service.ProductoService;
 
@@ -20,6 +24,12 @@ public class HomeController {
 	
 	@Autowired
 	private ProductoService productoService;
+	
+	//Almacena los detalles de compra
+	List<DetalleOrden> detalles = new ArrayList<DetalleOrden>();
+	
+	//Datos de la orden
+	Orden orden = new Orden();
 	
 	@GetMapping("")
 	public String home(Model model) {
@@ -40,7 +50,15 @@ public class HomeController {
 	}
 	
 	@PostMapping("/cart")
-	public String addCart() {
+	public String addCart(@RequestParam Integer id, @RequestParam Integer cantidad) {
+		DetalleOrden detalle = new DetalleOrden();
+		Producto producto = new Producto();
+		double subTotal = 0;
+		
+		Optional<Producto> optionalProducto = productoService.get(id);
+		LOG.info("Producto añadido: {}",optionalProducto.get());
+		LOG.info("Cantidad: {}",cantidad);
+		
 		return "usuario/carrito";
 	}
 
