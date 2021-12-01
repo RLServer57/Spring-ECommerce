@@ -17,7 +17,7 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link" href="carrito.html">Carrito</a></li>
+					<li class="nav-item"><a class="nav-link" th:href="@{/getcart}">Carrito</a></li>
 					<li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
 				</ul>
 			</div>
@@ -27,7 +27,7 @@
 
 <!-- Footer -->
 <div th:fragment="footer">
-	<footer class="py-5 bg-dark" style="bottom: 0;">
+	<footer class="py-5 bg-dark">
 		<div class="container">
 			<p class="m-0 text-center text-white">Copyright &copy; Spring eCommerce 2021</p>
 		</div>
