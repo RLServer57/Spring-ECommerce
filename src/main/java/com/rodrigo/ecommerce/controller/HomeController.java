@@ -1,5 +1,6 @@
 package com.rodrigo.ecommerce.controller;
 
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -16,6 +17,8 @@ import com.rodrigo.ecommerce.model.Orden;
 import com.rodrigo.ecommerce.model.Producto;
 import com.rodrigo.ecommerce.model.Usuario;
 import com.rodrigo.ecommerce.service.IUsuarioService;
+import com.rodrigo.ecommerce.service.IDetalleOrdenService;
+import com.rodrigo.ecommerce.service.IOrdenService;
 import com.rodrigo.ecommerce.service.IProductoService;
 
 @Controller
@@ -29,6 +32,12 @@ public class HomeController {
 	
 	@Autowired
 	private IUsuarioService usuarioService;
+	
+	@Autowired
+	private IOrdenService ordenService;
+	
+	@Autowired
+	private IDetalleOrdenService detalleOrdenService;
 	
 	//Almacena los detalles de compra
 	List<DetalleOrden> detalles = new ArrayList<DetalleOrden>();
@@ -128,6 +137,27 @@ public class HomeController {
 		model.addAttribute("usuario", usuario);
 		
 		return "usuario/resumenorden";
+	}
+	
+	@GetMapping("/saveorder")
+	public String saveorder() {
+		Date fechaCreacion = new Date();
+		orden.setFechaCreacion(fechaCreacion);
+		orden.setNumero(ordenService.generarNumeroOrden());
+		
+		Usuario usuario = usuarioService.findById(1).get();
+		orden.setUsuario(usuario);
+		ordenService.save(orden);
+		
+		for (DetalleOrden dt: detalles) {
+			dt.setOrden(orden);
+			detalleOrdenService.save(dt);
+		}
+		
+		orden = new Orden();
+		detalles.clear();
+		
+		return "redirect:/";
 	}
 
 }
