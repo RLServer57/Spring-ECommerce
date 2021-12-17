@@ -7,6 +7,7 @@
   min-height: 100%;
   position: relative;
 }
+
 body {
   /*margin-top: 4.5em;
   margin-bottom: 7em;*/
@@ -14,6 +15,7 @@ body {
     padding-top: 3.5em;
     padding-bottom: 2em;
 }
+
 footer {
   position: absolute;
   bottom: 0;
