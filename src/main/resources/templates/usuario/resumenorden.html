@@ -16,13 +16,17 @@
 
 	<!-- Custom styles for this template -->
 	<link th:href="@{/css/heroic-features.css}" rel="stylesheet">
+	<link th:href="@{/vendor/bootstrap/css/bootstrap-icons.css}" rel="stylesheet">
 
 </head>
 
 <body>
 
 	<!-- Navigation -->
-	<div th:include="usuario/template_usuario.html::header">
+	<div th:include="usuario/template_usuario.html::header" th:if="${sesion==null}">
+	</div>
+	
+	<div th:include="usuario/template_usuario.html::header-user" th:unless="${sesion==null}">
 	</div>
 
 	<!-- Page Content -->
@@ -52,9 +56,9 @@
 							<h6 th:text="'Correo: '+${usuario.email}"></h6 >
 							<h6 th:text="'Dirección: '+${usuario.direccion}"></h6 >
 
-							<h5 class="card-title">
+							<center><h5 class="card-title">
 								PRODUCTOS
-							</h5>
+							</h5></center>
 							<div class="alert alert-light" role="alert">
 								<table class="table">
 									<thead>

@@ -1,12 +1,20 @@
-body, html {
-    height: 100%;
-    background-repeat: no-repeat;
-    background-image: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+body {
+  margin: 0;
+  margin-bottom: 40px;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));
 }
 
 .card-container.card {
     max-width: 350px;
     padding: 40px 40px;
+    margin-top: 2.5em;
+    margin-bottom: 2.5em;
 }
 
 .btn {
@@ -26,7 +34,8 @@ body, html {
     /* just in case there no content*/
     padding: 20px 25px 30px;
     margin: 0 auto 25px;
-    margin-top: 50px;
+    margin-top: 2.5em;
+    margin-bottom: 2.5em;
     /* shadows and rounded borders */
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;

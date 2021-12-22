@@ -16,6 +16,7 @@
 
 	<!-- Custom styles for this template -->
 	<link th:href="@{css/heroic-features.css}" rel="stylesheet">
+	<link th:href="@{/vendor/bootstrap/css/bootstrap-icons.css}" rel="stylesheet">
 
 </head>
 
@@ -56,8 +57,8 @@
 					<td th:text="${producto.cantidad}"></td >
 					<td th:text="${producto.precio}"></td >
 					<td>
-						<a class="btn btn-warning" th:href="@{productos/edit/{id}(id=${producto.id})}">Editar</a>
-						<a class="btn btn-danger" th:href="@{productos/delete/{id}(id=${producto.id})}">Eliminar</a>
+						<a class="btn btn-warning" th:href="@{productos/edit/{id}(id=${producto.id})}" title="Editar"><i class="bi bi-pencil-square"></i></a>
+						<a class="btn btn-danger" th:href="@{productos/delete/{id}(id=${producto.id})}" title="Eliminar"><i class="bi bi-trash"></i></a>
 					</td>
 				</tr >
 			</tbody>

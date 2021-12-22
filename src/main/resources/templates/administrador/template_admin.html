@@ -7,7 +7,7 @@
 			<form class="form-inline my-2 my-lg-0" method="post" action="#">
 				<input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" name="nombre"
 					autocomplete="off">
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit" title="Buscar"><i class="bi bi-search"></i></button>
 			</form>
 
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
@@ -21,7 +21,8 @@
 							id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> ADMIN </a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							<a class="dropdown-item" th:href="@{/productos}">Productos</a>
+							<a class="dropdown-item" th:href="@{/productos}"><i class="bi bi-boxes"></i> Productos</a>
+							<a class="dropdown-item" th:href="@{/logout}"><i class="bi bi-box-arrow-right"></i> Cerrar sesión</a>
 						</div>
 					</li>
 				</ul>

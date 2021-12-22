@@ -7,7 +7,7 @@
 			<form class="form-inline my-2 my-lg-0" method="post" th:action="@{/search}">
 				<input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" name="nombre"
 					autocomplete="off">
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit" title="Buscar"><i class="bi bi-search"></i></button>
 			</form>
 
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
@@ -16,8 +16,8 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link" th:href="@{/getcart}">Carrito</a></li>
-					<li class="nav-item"><a class="nav-link" th:href="@{/usuario/login}">Login</a></li>
+					<li class="nav-item"><a class="nav-link" th:href="@{/getcart}"><i class="bi bi-cart"></i> Carrito</a></li>
+					<li class="nav-item"><a class="nav-link" th:href="@{/usuario/login}"><i class="bi bi-box-arrow-in-left"></i> Login</a></li>
 				</ul>
 			</div>
 		</div>
@@ -32,7 +32,7 @@
 			<form class="form-inline my-2 my-lg-0" method="post" th:action="@{/search}">
 				<input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" name="nombre"
 					autocomplete="off">
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit" title="Buscar"><i class="bi bi-search"></i></button>
 			</form>
 
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
@@ -46,8 +46,9 @@
 							id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> USER </a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							<a class="dropdown-item" th:href="@{/usuario/compras}">Compras</a>
-							<a class="dropdown-item" th:href="@{/getcart}">Carrito</a>
+							<a class="dropdown-item" th:href="@{/usuario/compras}"><i class="bi bi-bag"></i> Compras</a>
+							<a class="dropdown-item" th:href="@{/getcart}"><i class="bi bi-cart"></i> Carrito</a>
+							<a class="dropdown-item" th:href="@{/logout}"><i class="bi bi-box-arrow-right"></i> Cerrar sesión</a>
 						</div>
 					</li>
 				</ul>

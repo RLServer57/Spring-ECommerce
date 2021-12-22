@@ -16,6 +16,7 @@
 
 	<!-- Custom styles for this template -->
 	<link th:href="@{/css/heroic-features.css}" rel="stylesheet">
+	<link th:href="@{/vendor/bootstrap/css/bootstrap-icons.css}" rel="stylesheet">
 
 </head>
 
@@ -57,11 +58,11 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>4555454</td>
-									<td>Fecha de Compra</td>
-									<td>Total</td>
-									<td><a href="detallecompra.html" class="btn btn-success">Ver Detalle</a></td>
+								<tr th:each="orden: ${ordenes}">
+									<td th:text="${orden.numero}"></td>
+									<td th:text="${orden.fechaCreacion}"></td>
+									<td th:text="${orden.total}"></td>
+									<td><a th:href="@{/usuario/detalle/{id} (id=${orden.id}) }" class="btn btn-success">Ver Detalle</a></td>
 								</tr>
 							</tbody>
 						</table>

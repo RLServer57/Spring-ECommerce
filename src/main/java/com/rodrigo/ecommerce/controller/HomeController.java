@@ -129,7 +129,6 @@ public class HomeController {
 	public String getCart(Model model, HttpSession session) {
 		model.addAttribute("cart", detalles);
 		model.addAttribute("orden", orden);
-		
 		model.addAttribute("sesion", session.getAttribute("idusuario"));
 		return "usuario/carrito";
 	}
@@ -142,6 +141,7 @@ public class HomeController {
 		model.addAttribute("cart", detalles);
 		model.addAttribute("orden", orden);
 		model.addAttribute("usuario", usuario);
+		model.addAttribute("sesion", session.getAttribute("idusuario"));
 		
 		return "usuario/resumenorden";
 	}
@@ -163,7 +163,6 @@ public class HomeController {
 		
 		orden = new Orden();
 		detalles.clear();
-		
 		return "redirect:/";
 	}
 	
@@ -174,6 +173,12 @@ public class HomeController {
 				.filter(p -> p.getNombre().contains(nombre)).collect(Collectors.toList());
 		model.addAttribute("productos", productos);
 		return "usuario/home";
+	}
+	
+	@GetMapping("/logout")
+	public String cerrarSesion(HttpSession session) {
+		session.invalidate();
+		return "redirect:/";
 	}
 
 }
