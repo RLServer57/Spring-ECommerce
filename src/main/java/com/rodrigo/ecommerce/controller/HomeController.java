@@ -57,19 +57,20 @@ public class HomeController {
 	}
 	
 	@GetMapping("productohome/{id}")
-	public String productoHome(@PathVariable Integer id, Model model) {
+	public String productoHome(@PathVariable Integer id, HttpSession session, Model model) {
 		LOG.info("Id enviado: {}",id);
 		Producto producto = new Producto();
 		Optional<Producto> productoOptional = productoService.get(id);
 		producto = productoOptional.get();
 		
 		model.addAttribute("producto", producto);
+		model.addAttribute("sesion", session.getAttribute("idusuario"));
 		
 		return "usuario/productohome";
 	}
 	
 	@PostMapping("/cart")
-	public String addCart(@RequestParam Integer id, @RequestParam Integer cantidad, Model model) {
+	public String addCart(@RequestParam Integer id, @RequestParam Integer cantidad, HttpSession session, Model model) {
 		DetalleOrden detalleOrden = new DetalleOrden();
 		Producto producto = new Producto();
 		double sumaTotal = 0;
@@ -97,6 +98,7 @@ public class HomeController {
 		orden.setTotal(sumaTotal);
 		model.addAttribute("cart", detalles);
 		model.addAttribute("orden", orden);
+		model.addAttribute("sesion", session.getAttribute("idusuario"));
 		
 		return "usuario/carrito";
 	}
@@ -173,12 +175,6 @@ public class HomeController {
 				.filter(p -> p.getNombre().contains(nombre)).collect(Collectors.toList());
 		model.addAttribute("productos", productos);
 		return "usuario/home";
-	}
-	
-	@GetMapping("/logout")
-	public String cerrarSesion(HttpSession session) {
-		session.invalidate();
-		return "redirect:/";
 	}
 
 }

@@ -91,4 +91,10 @@ public class UsuarioController {
 		return "usuario/detallecompra";
 	}
 	
+	@GetMapping("/logout")
+	public String cerrarSesion(HttpSession session) {
+		session.invalidate();
+		return "redirect:/";
+	}
+	
 }
